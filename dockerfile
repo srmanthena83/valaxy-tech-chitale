@@ -1,4 +1,6 @@
-FROM centos:7
+FROM centos
 RUN yum install httpd -y
-CMD service httpd start; systemctl enable httpd
-EXPOSE 85
+COPY index.html /var/www/html/
+
+CMD [“/usr/sbin/httpd”,” -D”,” FOREGROUND”]
+EXPOSE 80
