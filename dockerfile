@@ -1,6 +1,4 @@
-FROM centos
-RUN yum install httpd -y
-COPY index.html /var/www/html/
+FROM httpd:2.4
+CMD touch sreetestfile
+COPY ./sreetestfile /usr/local/appache2/htdocs/
 
-CMD [“/usr/sbin/httpd”,” -D”,” FOREGROUND”]
-EXPOSE 80
